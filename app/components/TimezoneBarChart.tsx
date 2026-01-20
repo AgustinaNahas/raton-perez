@@ -100,15 +100,18 @@ export default function TimezoneBarChart() {
                 tick={{ fill: '#4a5568', fontSize: 12 }}
                 tickFormatter={formatNumber}
               />
-              <Tooltip 
-                formatter={(value: number) => [formatNumber(value), 'Niños']}
-                contentStyle={{ 
-                  backgroundColor: '#fef7f7', 
-                  border: '2px solid #fecdd3',
-                  borderRadius: '8px',
-                  color: '#5a4a4a'
-                }}
-              />
+            <Tooltip 
+              formatter={(value: number | undefined) => {
+                if (value === undefined) return ['0', 'Niños'];
+                return [formatNumber(value), 'Niños'];
+              }}
+              contentStyle={{ 
+                backgroundColor: '#fef7f7', 
+                border: '2px solid #fecdd3',
+                borderRadius: '8px',
+                color: '#5a4a4a'
+              }}
+            />
               <Bar dataKey="niños" radius={[8, 8, 0, 0]}>
                 {chartData.map((entry, index) => {
                   return (

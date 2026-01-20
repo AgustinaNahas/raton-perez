@@ -121,7 +121,8 @@ export default function TimeZoneMap() {
         geometry: {
           type: 'Polygon',
           coordinates: [coordinates]
-        }
+        },
+        properties: {}
       }
     });
 
